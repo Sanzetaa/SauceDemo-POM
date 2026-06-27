@@ -1,0 +1,10 @@
+[project]
+name = "saucedemo-pom"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.34.2",
+    "selenium>=4.45.0",
+]
