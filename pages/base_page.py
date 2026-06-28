@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
 
 
 class BasePage:
@@ -41,3 +42,6 @@ class BasePage:
         return WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_all_elements_located(locator)
         )
+    
+    def press_enter(self, locator, timeout=10):
+        self.find(locator).send_keys(Keys.ENTER)

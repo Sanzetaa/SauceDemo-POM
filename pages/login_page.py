@@ -32,6 +32,30 @@ class LoginPage(BasePage):
         self.type(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
 
+    def blank_credential_login(self, username, password):
+        self._wait_for_page_ready()
+        self.type(self.USERNAME_INPUT, username)
+        self.type(self.PASSWORD_INPUT, password)
+        self.click(self.LOGIN_BUTTON)
+
+    def uppercase_credential_login(self, username, password):
+        self._wait_for_page_ready()
+        self.type(self.USERNAME_INPUT, username)
+        self.type(self.PASSWORD_INPUT, password)
+        self.click(self.LOGIN_BUTTON) 
+
+    def maximum_credential_login(self, username, password):
+        self._wait_for_page_ready()
+        self.type(self.USERNAME_INPUT, username)
+        self.type(self.PASSWORD_INPUT, password)
+        self.click(self.LOGIN_BUTTON) 
+
+    def login_using_enter(self, username, password):
+        self._wait_for_page_ready()
+        self.type(self.USERNAME_INPUT, username)
+        self.type(self.PASSWORD_INPUT, password)
+        self.press_enter(self.PASSWORD_INPUT) 
+
     def wait_for_inventory(self, timeout=10):
         self.wait_for_url_contains("inventory", timeout)
 
