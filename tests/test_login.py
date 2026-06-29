@@ -8,7 +8,7 @@ def test_valid_login(driver):
     login_page.wait_for_inventory()
     assert "inventory" in driver.current_url
 
-def test_invalid_login(driver):
+def test_wrong_crendential_login(driver):
     login_page = LoginPage(driver)
     login_page.load()
     login_page.wrong_credential_login("sanjita", "adhikari")
@@ -31,6 +31,24 @@ def test_maximum_login(driver):
     login_page.load()
     login_page.maximum_credential_login("standarduserisniceusertobenoticedinthispage", "secret_sauceing_bbhikeintheriver")
     assert "inventory" not in driver.current_url
+
+def test_invalid_username_login(driver):
+    login_page = LoginPage(driver)
+    login_page.load()
+    login_page.invalid_username_login("abc@#$", "secret_sauce")
+    assert "inventory" not in driver.current_url
+
+def test_invalid_password_login(driver):
+    login_page = LoginPage(driver)
+    login_page.load()
+    login_page.invalid_password_login("standard_user", "12345")
+    assert "inventory" not in driver.current_url
+
+def test_password_is_masked(driver):
+    login_page = LoginPage(driver)
+    login_page.load()
+    login_page.enter_password("secret_sauce")
+    assert login_page.is_password_masked()
 
 def test_login_using_enter(driver):
     login_page = LoginPage(driver)
