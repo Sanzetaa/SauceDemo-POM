@@ -48,55 +48,35 @@ def test_payment_information(driver):
     assert overview.get_payment_information() == "SauceCard #31337"
 
 def test_shipping_information(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     assert overview.get_shipping_information() == "Free Pony Express Delivery!"
 
 def test_item_total(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     assert "Item total:" in overview.get_item_total()
 
 def test_tax(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     assert "Tax:" in overview.get_tax()
 
 
 def test_total(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     assert "Total:" in overview.get_total()
 
 def test_finish_checkout(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     overview.click_finish()
-
     assert "checkout-complete" in driver.current_url
 
 
 def test_cancel_checkout(driver):
-
     go_to_checkout_overview(driver)
-
     overview = CheckoutStepTwoPage(driver)
-
     overview.click_cancel()
-
     assert "inventory" in driver.current_url

@@ -8,12 +8,9 @@ class CheckoutCompletePage(BasePage):
 
 
     CHECKOUT_COMPLETE_CONTAINER = (By.ID, "checkout_complete_container")
-
     COMPLETE_HEADER = (By.CLASS_NAME, "complete-header")
     COMPLETE_TEXT = (By.CLASS_NAME, "complete-text")
-
     BACK_HOME_BUTTON = (By.ID, "back-to-products")
-
     PONY_EXPRESS_IMAGE = (By.CLASS_NAME, "pony_express")
 
     def load(self):
