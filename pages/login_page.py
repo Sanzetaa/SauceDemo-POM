@@ -62,13 +62,7 @@ class LoginPage(BasePage):
         self.type(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON) 
 
-    def enter_password(self, password):
-        self._wait_for_page_ready()
-        self.type(self.PASSWORD_INPUT, password)
-
-    def is_password_masked(self):
-        password_field = self.find_visible(self.PASSWORD_INPUT)
-        return password_field.get_attribute("type") == "password"
+    
 
     def login_using_enter(self, username, password):
         self._wait_for_page_ready()

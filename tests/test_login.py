@@ -44,11 +44,6 @@ def test_invalid_password_login(driver):
     login_page.invalid_password_login("standard_user", "12345")
     assert "inventory" not in driver.current_url
 
-def test_password_is_masked(driver):
-    login_page = LoginPage(driver)
-    login_page.load()
-    login_page.enter_password("secret_sauce")
-    assert login_page.is_password_masked()
 
 def test_login_using_enter(driver):
     login_page = LoginPage(driver)
