@@ -7,14 +7,11 @@ class CheckoutStepOnePage(BasePage):
 
     # Locators
     CHECKOUT_CONTAINER = (By.ID, "checkout_info_container")
-
     FIRST_NAME_INPUT = (By.ID, "first-name")
     LAST_NAME_INPUT = (By.ID, "last-name")
     POSTAL_CODE_INPUT = (By.ID, "postal-code")
-
     CONTINUE_BUTTON = (By.ID, "continue")
     CANCEL_BUTTON = (By.ID, "cancel")
-
     ERROR_MESSAGE = (By.CSS_SELECTOR, "h3[data-test='error']")
 
     def wait_for_checkout_page(self):
