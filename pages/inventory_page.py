@@ -15,19 +15,18 @@ class InventoryPage(BasePage):
     LOGOUT_LINK = (By.ID, "logout_sidebar_link")
     ABOUT_LINK = (By.ID, "about_sidebar_link")
     RESET_APP_STATE = (By.ID, "reset_sidebar_link")
-
     CART_ICON = (By.CLASS_NAME, "shopping_cart_link")
     CART_BADGE = (By.CLASS_NAME, "shopping_cart_badge")
-
     SORT_DROPDOWN = (By.CLASS_NAME, "product_sort_container")
-
     ADD_TO_CART_BACKPACK = (By.ID, "add-to-cart-sauce-labs-backpack")
     REMOVE_BACKPACK = (By.ID, "remove-sauce-labs-backpack")
-
     ADD_TO_CART_BIKE_LIGHT = (By.ID, "add-to-cart-sauce-labs-bike-light")
     REMOVE_BIKE_LIGHT = (By.ID, "remove-sauce-labs-bike-light")
-
     FIRST_PRODUCT = (By.CLASS_NAME, "inventory_item_name")
+    TWITTER_LINK = (By.CSS_SELECTOR, "a[data-test='social-twitter']")
+    FACEBOOK_LINK = (By.CSS_SELECTOR, "a[data-test='social-facebook']")
+    LINKEDIN_LINK = (By.CSS_SELECTOR, "a[data-test='social-linkedin']")
+    
 
 
     def load(self):
@@ -49,9 +48,6 @@ class InventoryPage(BasePage):
     def close_menu(self):
         self.click(self.CLOSE_MENU_BUTTON)
 
-    def logout(self):
-        self.open_menu()
-        self.click(self.LOGOUT_LINK)
 
     def click_about(self):
         self.open_menu()
@@ -86,3 +82,16 @@ class InventoryPage(BasePage):
         dropdown = Select(self.find(self.SORT_DROPDOWN))
         dropdown.select_by_visible_text(option)
 
+    
+    def click_twitter_link(self):
+        self.click(self.TWITTER_LINK)
+
+    def click_facebook_link(self):
+        self.click(self.FACEBOOK_LINK)
+
+    def click_linkedin_link(self):
+        self.click(self.LINKEDIN_LINK)
+
+    def logout(self):
+        self.open_menu()
+        self.click(self.LOGOUT_LINK)

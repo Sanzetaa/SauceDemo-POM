@@ -19,7 +19,7 @@ def test_inventory_products_displayed(driver):
     assert len(inventory.get_all_products()) > 0
 
 def test_add_backpack_to_cart(driver):
-    test_valid_login(driver)
+    test_valid_login(driver) 
     inventory = InventoryPage(driver)
     inventory.add_backpack()
     assert inventory.get_cart_badge() == "1"
@@ -75,10 +75,38 @@ def test_open_first_product(driver):
     inventory.click_first_product()
     assert "inventory-item" in driver.current_url
 
+def test_twitter_footer_link(driver):
+    test_valid_login(driver)
+    inventory = InventoryPage(driver)
+    original_window = driver.current_window_handle
+    inventory.click_twitter_link()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "x.com" in driver.current_url
+    driver.close()
+    driver.switch_to.window(original_window)
+
+def test_facebook_footer_link(driver):
+    test_valid_login(driver)
+    inventory = InventoryPage(driver)
+    original_window = driver.current_window_handle
+    inventory.click_facebook_link()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "facebook.com" in driver.current_url
+    driver.close()
+    driver.switch_to.window(original_window)
+
+def test_linkedin_footer_link(driver):
+    test_valid_login(driver)
+    inventory = InventoryPage(driver)
+    original_window = driver.current_window_handle
+    inventory.click_linkedin_link()
+    driver.switch_to.window(driver.window_handles[1])
+    assert "linkedin.com" in driver.current_url
+    driver.close()
+    driver.switch_to.window(original_window)
+
 def test_logout(driver):
     test_valid_login(driver)
     inventory = InventoryPage(driver)
     inventory.logout()
     assert "saucedemo" in driver.current_url
-
-    
