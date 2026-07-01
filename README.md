@@ -62,7 +62,7 @@ saucedemo_pom/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/saucedemo_pom.git
+git clone https://github.com/Sanzetaa/SauceDemo-POM
 ```
 
 Go to the project folder.
